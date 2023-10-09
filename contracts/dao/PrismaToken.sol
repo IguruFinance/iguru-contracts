@@ -13,8 +13,8 @@ import { OFT, IERC20, ERC20 } from "@layerzerolabs/solidity-examples/contracts/t
 contract PrismaToken is OFT, IERC2612 {
     // --- ERC20 Data ---
 
-    string internal constant _NAME = "Prisma Governance Token";
-    string internal constant _SYMBOL = "PRISMA";
+    string internal constant _NAME = "Iguru Governance Token";
+    string internal constant _SYMBOL = "IGURU";
     string public constant version = "1";
 
     // --- EIP 2612 Data ---
