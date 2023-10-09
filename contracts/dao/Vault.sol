@@ -34,11 +34,11 @@ contract PrismaVault is PrismaOwnable, SystemStart {
     using Address for address;
     using SafeERC20 for IERC20;
 
-    IPrismaToken public immutable prismaToken;
-    ITokenLocker public immutable locker;
-    IIncentiveVoting public immutable voter;
-    address public immutable deploymentManager;
-    uint256 immutable lockToTokenRatio;
+    IPrismaToken public prismaToken;
+    ITokenLocker public locker;
+    IIncentiveVoting public voter;
+    address public deploymentManager;
+    uint256 lockToTokenRatio;
 
     IEmissionSchedule public emissionSchedule;
     IBoostCalculator public boostCalculator;
@@ -100,12 +100,31 @@ contract PrismaVault is PrismaOwnable, SystemStart {
 
     constructor(
         address _prismaCore,
+        //IPrismaToken _token,
+        //ITokenLocker _locker,
+        //IIncentiveVoting _voter,
+        //address _stabilityPool,
+        //address _manager
+    ) PrismaOwnable(_prismaCore) SystemStart(_prismaCore) {
+        //prismaToken = _token;
+        //locker = _locker;
+        //voter = _voter;
+        //lockToTokenRatio = _locker.lockToTokenRatio();
+        //deploymentManager = _manager;
+
+        // ensure the stability pool is registered with receiver ID 0
+        //_voter.registerNewReceiver();
+        //idToReceiver[0] = Receiver({ account: _stabilityPool, isActive: true });
+        //emit NewReceiverRegistered(_stabilityPool, 0);
+    }
+
+    function setAddresses(
         IPrismaToken _token,
         ITokenLocker _locker,
         IIncentiveVoting _voter,
         address _stabilityPool,
         address _manager
-    ) PrismaOwnable(_prismaCore) SystemStart(_prismaCore) {
+    ) external onlyOwner {
         prismaToken = _token;
         locker = _locker;
         voter = _voter;
