@@ -1,5 +1,5 @@
-# prisma-contracts
+# iguru-contracts
 
 A decentralized, non-custodial stablecoin backed by Ethereum liquid staking tokens.
 
-Visit the [Prisma documentation](https://docs.prismafinance.com/) to learn more.
+Visit the [Iguru documentation](https://igurufinance.gitbook.io/iguru-finance-base/) to learn more.
